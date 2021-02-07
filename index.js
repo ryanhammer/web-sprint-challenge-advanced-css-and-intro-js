@@ -268,8 +268,9 @@ console.log(get20s(artists));
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
-   /*Your Code Here*/
+function removeArtist(artArray, indexNum) {
+    artArray.splice(indexNum, 1);
+    return artArray.length;
 }
    
 
@@ -282,15 +283,25 @@ Use addArtist to do the following:
       name: Your Name Here, 
       years: Your Birth Year - current day,
       genre: Web Design, 
-      nationality: Your Nationality Here
+      nationality: Your Nationality Here,
       bio: Add 1-2 sentences (or use lorem ipsum)
     }  
 3. Return the resulting array
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(artArray) {
+    artArray.push(
+        { 
+            "id": 20,
+            "name": "Ryan Hammer", 
+            "years": "1984 - Present",
+            "genre": "Web Design", 
+            "nationality": "Delawarean",
+            "bio": "Ryan enjoys drinking pina coladas, getting caught into rain, has recently become a bit more into health foods, and nominally likes the taste of champagne."
+          }
+    );  
+    return artArray;
   }
 
   
@@ -302,8 +313,14 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(artArray) {
+    let prolificOutput = [];
+    for (let i = 0; i < artArray.length; i++) {
+        if (artArray[i].paintings > 100) {
+            prolificOutput.push(artArray[i].name);
+        }
+    }
+    return prolificOutput;
 }
 
 
