@@ -217,7 +217,8 @@ console.log(artists[2].bio);
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
-
+artists[8].name = "Vincent Van Gogh";
+console.log(artists[8].name);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
@@ -228,8 +229,8 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(artArray,indexNum) {
+    return `the artist at index ${indexNum} is ${artArray[indexNum].name}`;
 }  
 
 
@@ -242,9 +243,19 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
-  /*Your Code Here*/
+function get20s(artArray) {
+    let recentArtists = [];
+    let lifespan = [];
+    for (let i = 0; i < artArray.length; i++) {
+        lifespan.push(artArray[i].years.split(" "));
+        if ((parseInt(lifespan[i][0]) >= 1900) && parseInt(lifespan[i][2]) < 2000) {
+        recentArtists.push(artArray[i].name);
+        }
+    }
+    return recentArtists;
 }
+
+console.log(get20s(artists));
 
 
 
